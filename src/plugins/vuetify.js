@@ -6,7 +6,7 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#189f64',    // 主色调 - 蓝色
+          primary: '#ff89f9',    // 主色调 - 粉色
           secondary: '#424242',  // 辅助色调 - 灰色
           accent: '#82B1FF',     // 强调色调 - 浅蓝色
           error: '#FF5252',      // 错误色调 - 红色
@@ -17,7 +17,7 @@ export default createVuetify({
       },
       dark: {
         colors: {
-          primary: '#189f64',    // 主色调 - 蓝色
+          primary: '#189f64',    // 主色调 - 绿色
           secondary: '#424242',  // 辅助色调 - 灰色
           accent: '#FF4081',     // 强调色调 - 粉色
           error: '#FF5252',      // 错误色调 - 红色
