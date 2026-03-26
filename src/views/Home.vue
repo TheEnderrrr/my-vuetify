@@ -13,7 +13,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="@/assets/pictures/hadoop-logo.jpg"
+            :src="hadoopLogo"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
@@ -27,7 +27,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="@/assets/pictures/spark.png"
+            :src="sparkPng"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
@@ -41,7 +41,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="@/assets/pictures/flink.png"
+            :src="flinkPng"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
@@ -87,6 +87,10 @@
 </template>
 
 <script setup>
+import hadoopLogo from '@/assets/pictures/hadoop-logo.jpg'
+import sparkPng from '@/assets/pictures/spark.png'
+import flinkPng from '@/assets/pictures/flink.png'
+
 const stats = [
   { title: '数据处理能力', value: '能够满足期末要求' },
   { title: '系统正确率', value: '≥60%'},
