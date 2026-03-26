@@ -13,7 +13,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="src/assets/pictures/hadoop-logo.jpg"
+            src="@/assets/pictures/hadoop-logo.jpg"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
@@ -27,7 +27,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="src/assets/pictures/spark.png"
+            src="@/assets/pictures/spark.png"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
@@ -41,7 +41,7 @@
       <v-col cols="12" md="4">
         <v-card elevation="2" class="pa-5">
           <v-img
-            src="src/assets/pictures/flink.png"
+            src="@/assets/pictures/flink.png"
             height="200"
             class="bg-grey-lighten-2"
           ></v-img>
