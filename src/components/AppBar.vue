@@ -70,4 +70,17 @@ const menuItems = ref([
 .active-link {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* 强制设置顶栏所有文本为白色 */
+.v-toolbar-title {
+  color: white !important;
+}
+
+.v-btn {
+  color: white !important;
+}
+
+.v-icon {
+  color: white !important;
+}
 </style>
