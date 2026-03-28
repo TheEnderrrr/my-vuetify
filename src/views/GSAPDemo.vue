@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="animation-demo fill-height">
+  <v-container class="animation-demo fill-height">
     <v-row justify="center" align="center">
-      <v-col cols="12" class="text-center">
+      <v-col cols="12" md="10" lg="10" class="text-center">
         <h1 class="text-h3 mb-6">GSAP 动画测试</h1>
         
         <!-- 触发按钮 -->

@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="pa-4">
-    <v-row>
-      <v-col cols="12">
+  <v-container class="py-4">
+    <v-row justify="center">
+      <v-col cols="12" md="10" lg="10">
         <v-card>
           <v-card-title>关于</v-card-title>
           <v-card-text>

@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <AppBar />
-    <v-main>
+    <Sidebar />
+    <v-main style="margin-left: var(--v-sidebar-width);">
       <div ref="pageContainer" class="page-wrapper">
         <router-view v-slot="{ Component }">
           <transition
@@ -24,6 +25,7 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import gsap from 'gsap'
 import AppBar from './components/AppBar.vue'
+import Sidebar from './components/Sidebar.vue'
 
 const route = useRoute()
 const pageContainer = ref(null)
@@ -46,7 +48,7 @@ const onEnter = (el, done) => {
   gsap.to(el, {
     x: 0,
     opacity: 1,
-    duration: 0.2,
+    duration: 0.15,
     ease: 'power3.out', // 快速开始，慢慢减速
     force3D: true,
     onComplete: () => {
@@ -61,7 +63,7 @@ const onLeave = (el, done) => {
   gsap.to(el, {
     x: -window.innerWidth * 0.3,
     opacity: 0,
-    duration: 0.2,
+    duration: 0.15,
     ease: 'power2.in', // 逐渐加速
     force3D: true,
     onComplete: done

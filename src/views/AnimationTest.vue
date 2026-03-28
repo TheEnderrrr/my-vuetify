@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="fill-height">
     <v-row justify="center" align="center">
-      <v-col cols="12" md="10" lg="8">
+      <v-col cols="12" md="10" lg="10">
         <v-card elevation="4">
           <v-card-title class="text-h4 font-weight-bold text-center py-6">
             动画测试
