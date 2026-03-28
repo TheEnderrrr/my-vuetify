@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Hdfs from '../views/Hdfs.vue'
-import Hue from '../views/Hue.vue'
+import Projects from '../views/Projects.vue'
 import Prediction from '../views/Prediction.vue'
 import About from '../views/About.vue'
-import Yarn from '../views/Yarn.vue'
+import AnimationTest from '../views/AnimationTest.vue'
+import GSAPDemo from '../views/GSAPDemo.vue'
 
 const routes = [
   {
@@ -13,14 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/hdfs',
-    name: 'HDFS',
-    component: Hdfs
-  },
-  {
-    path: '/hue',
-    name: 'HUE',
-    component: Hue
+    path: '/projects',
+    name: 'Projects',
+    component: Projects
   },
   {
     path: '/prediction',
@@ -33,9 +28,14 @@ const routes = [
     component: About
   },
   {
-    path: '/yarn',
-    name: 'Yarn',
-    component: Yarn
+    path: '/animation-test',
+    name: 'AnimationTest',
+    component: AnimationTest
+  },
+  {
+    path: '/gsap-demo',
+    name: 'GSAPDemo',
+    component: GSAPDemo
   }
 ]
 

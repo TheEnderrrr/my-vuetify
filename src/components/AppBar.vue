@@ -7,9 +7,24 @@
   >
     <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     
-    <v-toolbar-title>大数据与分布式系统</v-toolbar-title>
+    <v-toolbar-title 
+      @click="goToHome"
+      class="cursor-pointer"
+    >
+      Ender 的奇妙小窝
+    </v-toolbar-title>
     
     <v-spacer></v-spacer>
+    
+    <!-- 主题切换按钮 -->
+    <v-btn
+      icon
+      variant="text"
+      @click="toggleTheme"
+      class="mr-2"
+    >
+      <v-icon>{{ isDark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
+    </v-btn>
     
     <v-btn 
       v-for="item in menuItems" 
@@ -52,16 +67,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTheme } from 'vuetify'
 
+const router = useRouter()
+const theme = useTheme()
 const drawer = ref(false)
+
+// 当前主题状态
+const isDark = computed(() => theme.current.value.dark)
+
+// 切换主题
+const toggleTheme = () => {
+  theme.global.name.value = isDark.value ? 'light' : 'dark'
+}
+
+// 跳转到首页
+const goToHome = () => {
+  router.push('/')
+}
 
 const menuItems = ref([
   { title: '首页', icon: 'mdi-home', route: '/' },
-  { title: 'HDFS', icon: 'mdi-folder-network', href: 'http://10.18.224.100:9870/', target: '_blank' },
-  { title: 'HUE', icon: 'mdi-palette', href: 'https://demo.gethue.com/hue/home', target: '_blank' },
-  { title: 'YARN', icon: 'mdi-server', href: 'http://10.18.224.100:8088/', target: '_blank' },
-  { title: '预测任务', icon: 'mdi-chart-box', route: '/prediction' },
+  { title: '项目列表', icon: 'mdi-folder-multiple', route: '/projects' },
+  { title: '动画测试', icon: 'mdi-play-box', route: '/animation-test' },
+  { title: 'GSAP 演示', icon: 'mdi-animation', route: '/gsap-demo' },
   { title: '关于', icon: 'mdi-information', route: '/about' }
 ])
 </script>
@@ -71,16 +102,18 @@ const menuItems = ref([
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 强制设置顶栏所有文本为白色 */
-.v-toolbar-title {
-  color: white !important;
+/* 主题切换按钮悬停效果 */
+.v-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-.v-btn {
-  color: white !important;
+/* 网页标题可点击样式 */
+.cursor-pointer {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.v-icon {
-  color: white !important;
+.cursor-pointer:hover {
+  opacity: 0.8;
 }
 </style>

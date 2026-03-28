@@ -2,11 +2,77 @@
   <v-app>
     <AppBar />
     <v-main>
-      <router-view />
+      <div ref="pageContainer" class="page-wrapper">
+        <router-view v-slot="{ Component }">
+          <transition
+            name="page-fade"
+            mode="out-in"
+            @before-enter="onBeforeEnter"
+            @enter="onEnter"
+            @leave="onLeave"
+          >
+            <component :is="Component" :key="$route.fullPath" />
+          </transition>
+        </router-view>
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import gsap from 'gsap'
 import AppBar from './components/AppBar.vue'
+
+const route = useRoute()
+const pageContainer = ref(null)
+
+// 监听路由变化，执行页面切换动画
+const isAnimating = ref(false)
+
+// 新页面进入前 - 初始状态（隐藏在右侧）
+const onBeforeEnter = (el) => {
+  gsap.set(el, { 
+    x: window.innerWidth * 0.3,
+    opacity: 0 
+  })
+}
+
+// 新页面进入动画 - 从右侧滑入
+const onEnter = (el, done) => {
+  isAnimating.value = true
+  
+  gsap.to(el, {
+    x: 0,
+    opacity: 1,
+    duration: 0.2,
+    ease: 'power3.out', // 快速开始，慢慢减速
+    force3D: true,
+    onComplete: () => {
+      isAnimating.value = false
+      done()
+    }
+  })
+}
+
+// 旧页面离开动画 - 向左滑出
+const onLeave = (el, done) => {
+  gsap.to(el, {
+    x: -window.innerWidth * 0.3,
+    opacity: 0,
+    duration: 0.2,
+    ease: 'power2.in', // 逐渐加速
+    force3D: true,
+    onComplete: done
+  })
+}
 </script>
+
+<style scoped>
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+</style>

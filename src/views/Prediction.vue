@@ -1,10 +1,11 @@
 <template>
-  <v-container fluid class="pa-4">
-    <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title class="text-h4">电影情感与流派预测模型</v-card-title>
-          <v-card-text>
+  <div class="prediction-detail pa-6">
+    <div class="text-h4 font-weight-bold mb-4">
+      <v-icon color="primary" class="mr-2">mdi-chart-box</v-icon>
+      电影情感与流派预测模型
+    </div>
+    
+    <v-card-text>
             <p class="text-body-1">
               该模型基于电影的情感标签和流派数据进行训练，
               可用于预测一部电影的情绪倾向以及它可能属于的流派分类。
@@ -68,10 +69,7 @@
               </v-card>
             </v-expand-transition>
           </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script setup>
