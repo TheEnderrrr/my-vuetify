@@ -26,6 +26,19 @@
                   Spark
                 </v-chip>
               </div>
+              
+              <div class="mt-6">
+                <v-btn
+                  variant="outlined"
+                  rounded="pill"
+                  size="small"
+                  color="primary"
+                  @click="goToAbout"
+                >
+                  <v-icon start size="small">mdi-link-variant</v-icon>
+                  相关链接
+                </v-btn>
+              </div>
             </div>
           </v-card>
         </v-col>
@@ -182,10 +195,18 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToAbout = () => {
+  router.push('/about')
+}
+
 const interests = [
   { icon: 'mdi-gamepad-variant', title: '游戏爱好者', subtitle: 'APEX 狂热粉丝！' },
   { icon: 'mdi-code-braces', title: '编码开发', subtitle: '开发简化流程的小插件和工具' },
-  { icon: 'mdi-videos', title: '内容创作者', subtitle: '小透明 UP 主，记录生活与学习' },
+  { icon: 'mdi-youtube', title: '内容创作者', subtitle: '小透明 UP 主，记录生活与学习' },
   { icon: 'mdi-music-note', title: '美学欣赏', subtitle: '热爱音乐，追求美感与理解' }
 ]
 

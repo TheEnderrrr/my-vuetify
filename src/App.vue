@@ -35,6 +35,12 @@ const isAnimating = ref(false)
 
 // 新页面进入前 - 初始状态（隐藏在右侧）
 const onBeforeEnter = (el) => {
+  // 先将新页面滚动到顶部
+  window.scrollTo({
+    top: 0,
+    behavior: 'auto'
+  })
+  
   gsap.set(el, { 
     x: window.innerWidth * 0.3,
     opacity: 0 
@@ -45,7 +51,7 @@ const onBeforeEnter = (el) => {
 const onEnter = (el, done) => {
   isAnimating.value = true
   
-  gsap.to(el, {
+  const tween = gsap.to(el, {
     x: 0,
     opacity: 1,
     duration: 0.15,
@@ -56,11 +62,19 @@ const onEnter = (el, done) => {
       done()
     }
   })
+  
+  // 如果动画被取消，确保调用 done
+  return () => {
+    tween.kill()
+    gsap.set(el, { x: 0, opacity: 1 })
+    isAnimating.value = false
+    done()
+  }
 }
 
 // 旧页面离开动画 - 向左滑出
 const onLeave = (el, done) => {
-  gsap.to(el, {
+  const tween = gsap.to(el, {
     x: -window.innerWidth * 0.3,
     opacity: 0,
     duration: 0.15,
@@ -68,6 +82,13 @@ const onLeave = (el, done) => {
     force3D: true,
     onComplete: done
   })
+  
+  // 如果动画被取消，确保调用 done
+  return () => {
+    tween.kill()
+    gsap.set(el, { x: -window.innerWidth * 0.3, opacity: 0 })
+    done()
+  }
 }
 </script>
 

@@ -47,7 +47,23 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 如果有保存的位置（浏览器前进/后退），使用保存的位置
+    if (savedPosition) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(savedPosition)
+        }, 300)
+      })
+    }
+    // 如果路由有 hash，返回 false 让组件自己处理
+    if (to.hash) {
+      return false
+    }
+    // 其他情况不强制滚动，保持当前位置，让页面动画自然进行
+    return false
+  }
 })
 
 export default router
