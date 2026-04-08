@@ -4,7 +4,7 @@
       <!-- 个人简介区域 -->
       <v-row justify="center">
         <v-col cols="12" md="10" lg="10">
-          <v-card elevation="4" rounded="xl" class="pa-6 mb-6">
+          <v-card elevation="2" rounded="lg" class="pa-6 mb-4">
             <div class="text-center">
               <v-avatar size="120" class="mb-4" color="primary">
                 <v-icon size="60" color="white">mdi-account-circle</v-icon>
@@ -31,77 +31,131 @@
         </v-col>
       </v-row>
 
-      <!-- 快速访问链接 -->
-      <v-row justify="center">
+      <!-- 我的兴趣和游戏 -->
+      <v-row justify="center" class="mt-0">
         <v-col cols="12" md="10" lg="10">
-          <v-card elevation="2" rounded="lg" class="pa-4 mb-6">
-            <v-card-title class="text-h5 font-weight-bold mb-4">
-              <v-icon color="primary" class="mr-2">mdi-lightning-bolt</v-icon>
-              快速访问
-            </v-card-title>
-            <v-row>
-              <v-col cols="12" sm="6" v-for="link in quickLinks" :key="link.title">
-                <v-btn
-                  :to="link.to"
-                  :color="link.color"
-                  variant="outlined"
-                  rounded="lg"
-                  block
-                  class="mb-3 py-3"
-                  height="auto"
-                >
-                  <v-icon start>{{ link.icon }}</v-icon>
-                  {{ link.title }}
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card>
+          <v-row>
+            <!-- 我的兴趣 -->
+            <v-col cols="12" md="6">
+              <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
+                <v-card-title class="text-h5 font-weight-bold mb-4">
+                  <v-icon color="primary" class="mr-2">mdi-heart</v-icon>
+                  我的兴趣
+                </v-card-title>
+                <v-card-text>
+                  <v-list density="compact" bg-color="transparent">
+                    <v-list-item
+                      v-for="(interest, index) in interests"
+                      :key="index"
+                      :prepend-icon="interest.icon"
+                      :title="interest.title"
+                      :subtitle="interest.subtitle"
+                    ></v-list-item>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            
+            <!-- 爱玩的游戏 -->
+            <v-col cols="12" md="6">
+              <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
+                <v-card-title class="text-h5 font-weight-bold mb-4">
+                  <v-icon color="secondary" class="mr-2">mdi-gamepad-variant</v-icon>
+                  爱玩的游戏
+                </v-card-title>
+                <v-card-text>
+                  <v-list density="compact" bg-color="transparent">
+                    <v-list-item
+                      v-for="(game, index) in games"
+                      :key="index"
+                      :prepend-icon="game.icon"
+                      :title="game.title"
+                      :subtitle="game.subtitle"
+                    ></v-list-item>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
 
-      <!-- 项目卡片 -->
-      <v-row justify="center">
+      <!-- 技术栈卡片 -->
+      <v-row justify="center" class="mt-0">
         <v-col cols="12" md="10" lg="10">
-          <v-card elevation="2" rounded="lg" class="pa-4 mb-6">
+          <v-row>
+            <!-- 大数据技术栈 -->
+            <v-col cols="12" md="6">
+              <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
+                <v-card-title class="text-h5 font-weight-bold mb-4">
+                  <v-icon color="primary" class="mr-2">mdi-database</v-icon>
+                  大数据技术栈
+                </v-card-title>
+                <v-card-text>
+                  <v-list density="compact" bg-color="transparent">
+                    <v-list-item
+                      v-for="(tech, index) in bigDataTechs"
+                      :key="index"
+                      :prepend-icon="tech.icon"
+                      :title="tech.title"
+                      :subtitle="tech.subtitle"
+                    ></v-list-item>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            
+            <!-- 游戏开发技术栈 -->
+            <v-col cols="12" md="6">
+              <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
+                <v-card-title class="text-h5 font-weight-bold mb-4">
+                  <v-icon color="secondary" class="mr-2">mdi-gamepad-variant</v-icon>
+                  游戏开发技术栈
+                </v-card-title>
+                <v-card-text>
+                  <v-list density="compact" bg-color="transparent">
+                    <v-list-item
+                      v-for="(tech, index) in gameDevTechs"
+                      :key="index"
+                      :prepend-icon="tech.icon"
+                      :title="tech.title"
+                      :subtitle="tech.subtitle"
+                    ></v-list-item>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+
+      <!-- AI 使用情况 -->
+      <v-row justify="center" class="mt-0">
+        <v-col cols="12" md="10" lg="10">
+          <v-card elevation="2" rounded="lg" class="pa-4 mb-4">
             <v-card-title class="text-h5 font-weight-bold mb-4">
-              <v-icon color="primary" class="mr-2">mdi-folder-open</v-icon>
-              期末项目：电影分类预测系统
+              <v-icon color="accent" class="mr-2">mdi-robot-happy</v-icon>
+              AI 使用情况
             </v-card-title>
             <v-card-text>
-              <p class="text-body-1 mb-4">
-                基于朴素贝叶斯算法的电影分类预测系统，运行在 Hadoop 分布式平台上，
-                能够处理海量数据并进行高效的电影分类预测。
-              </p>
-              
-              <v-divider class="mb-4"></v-divider>
-              
-              <div class="text-subtitle-2 font-weight-bold mb-3">核心技术栈</div>
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <v-chip size="small" color="primary" class="ma-1">Vue 3</v-chip>
-                <v-chip size="small" color="secondary" class="ma-1">Vuetify</v-chip>
-                <v-chip size="small" color="accent" class="ma-1">Django</v-chip>
-                <v-chip size="small" color="success" class="ma-1">Hadoop</v-chip>
-                <v-chip size="small" color="info" class="ma-1">Spark</v-chip>
-                <v-chip size="small" color="warning" class="ma-1">Naive Bayes</v-chip>
-              </div>
-
-              <v-btn 
-                to="/projects" 
-                color="primary" 
-                rounded="lg"
-                prepend-icon="mdi-arrow-right"
-              >
-                查看项目列表
-              </v-btn>
+              <v-list density="compact" bg-color="transparent">
+                <v-list-item
+                  v-for="(ai, index) in aiUsage"
+                  :key="index"
+                  :prepend-icon="ai.icon"
+                  :title="ai.title"
+                  :subtitle="ai.subtitle"
+                ></v-list-item>
+              </v-list>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
 
       <!-- 关于我 -->
-      <v-row justify="center">
+      <v-row justify="center" class="mt-0">
         <v-col cols="12" md="10" lg="10">
-          <v-card elevation="2" rounded="lg" class="pa-4">
+          <v-card elevation="2" rounded="lg" class="pa-4 mb-4">
             <v-card-title class="text-h5 font-weight-bold mb-4">
               <v-icon color="primary" class="mr-2">mdi-information-outline</v-icon>
               关于本站
@@ -128,11 +182,41 @@
 </template>
 
 <script setup>
-const quickLinks = [
-  { title: '项目列表', to: '/projects', icon: 'mdi-folder-multiple', color: 'primary' },
-  { title: '动画测试', to: '/animation-test', icon: 'mdi-play-box', color: 'secondary' },
-  { title: 'GSAP 演示', to: '/gsap-demo', icon: 'mdi-animation', color: 'accent' },
-  { title: '关于我', to: '/about', icon: 'mdi-information', color: 'info' }
+const interests = [
+  { icon: 'mdi-gamepad-variant', title: '游戏爱好者', subtitle: 'APEX 狂热粉丝！' },
+  { icon: 'mdi-code-braces', title: '编码开发', subtitle: '开发简化流程的小插件和工具' },
+  { icon: 'mdi-videos', title: '内容创作者', subtitle: '小透明 UP 主，记录生活与学习' },
+  { icon: 'mdi-music-note', title: '美学欣赏', subtitle: '热爱音乐，追求美感与理解' }
+]
+
+const games = [
+  { icon: 'mdi-trophy-award', title: 'T0 - 神级作品', subtitle: 'APEX（史上最好玩的游戏）、MC（陪伴童年和少年时期）' },
+  { icon: 'mdi-star-four-points', title: 'T1 - 强烈推荐', subtitle: '洛克王国世界、云顶之弈、LOL、弹丸论破系列推理作品' },
+  { icon: 'mdi-gamepad-circle', title: 'T2 - 休闲娱乐', subtitle: '各种派对小游戏、王国保卫战等策略塔防游戏' },
+  { icon: 'mdi-thumb-down-outline', title: '差评如潮', subtitle: '三国杀移动版' }
+]
+
+const bigDataTechs = [
+  { icon: 'mdi-language-javascript', title: 'JavaScript/TypeScript', subtitle: '前端开发基础语言' },
+  { icon: 'mdi-vuejs', title: 'Vue.js 3', subtitle: '现代化前端框架' },
+  { icon: 'mdi-database', title: 'Hadoop', subtitle: '分布式存储与计算' },
+  { icon: 'mdi-chart-timeline-variant', title: 'Spark', subtitle: '内存分布式计算' },
+  { icon: 'mdi-language-python', title: 'Python', subtitle: '数据分析与机器学习' }
+]
+
+const gameDevTechs = [
+  { icon: 'mdi-language-csharp', title: 'C#', subtitle: 'Unity 引擎主要语言' },
+  { icon: 'mdi-code-tags', title: 'C++', subtitle: 'Unreal Engine 核心语言' },
+  { icon: 'mdi-puzzle', title: 'Unity', subtitle: '跨平台游戏引擎' },
+  { icon: 'mdi-robot', title: 'Unreal Engine', subtitle: '高端游戏开发引擎' },
+  { icon: 'mdi-palette', title: 'Blender', subtitle: '3D 建模与动画' }
+]
+
+const aiUsage = [
+  { icon: 'mdi-code-braces', title: '代码辅助', subtitle: '使用 AI 辅助编程、代码审查和调试' },
+  { icon: 'mdi-text-box-outline', title: '文档编写', subtitle: '借助 AI 生成技术文档和笔记整理' },
+  { icon: 'mdi-lightbulb-on', title: '学习助手', subtitle: '通过 AI 解答疑问、理解复杂概念' },
+  { icon: 'mdi-pen-lock', title: '内容创作', subtitle: '使用 AI 辅助写作和创意生成' }
 ]
 
 const aboutItems = [

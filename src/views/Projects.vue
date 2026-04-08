@@ -2,8 +2,8 @@
   <v-container class="py-6">
     <v-row justify="center">
       <!-- 左侧项目列表 -->
-      <v-col cols="12" md="4" lg="3">
-        <v-card elevation="2" rounded="lg" class="pa-3">
+      <v-col cols="12" md="3" lg="3" class="project-list-col">
+        <v-card elevation="2" rounded="lg" class="pa-3 sticky-card">
           <v-card-title class="text-h6 font-weight-bold mb-3">
             <v-icon color="primary" class="mr-2">mdi-folder-multiple</v-icon>
             项目列表
@@ -40,10 +40,14 @@
       </v-col>
 
       <!-- 右侧项目详情 -->
-      <v-col cols="12" md="8" lg="7">
+      <v-col cols="12" md="9" lg="9">
         <v-card elevation="2" rounded="lg" min-height="500">
-          <Prediction v-if="showPrediction" />
-          <div v-else class="pa-8 text-center">
+          <component 
+            v-if="currentComponent" 
+            :is="currentComponent"
+            :key="selectedProject"
+          />
+          <div v-else class="pa-4 text-center">
             <v-icon size="80" color="grey-lighten-2">mdi-folder-open-outline</v-icon>
             <h3 class="text-h5 mt-4 text-grey">请选择一个项目查看详情</h3>
           </div>
@@ -54,8 +58,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Prediction from './Prediction.vue'
+import JavaFXStationAnnouncer from './JavaFXStationAnnouncer.vue'
 
 // 项目数据
 const projects = [
@@ -67,17 +72,10 @@ const projects = [
     color: 'primary'
   },
   {
-    id: 'gsap',
-    title: 'GSAP 动画演示',
-    subtitle: '前端动画效果展示',
-    icon: 'mdi-animation',
-    color: 'accent'
-  },
-  {
-    id: 'animation',
-    title: '动画测试页面',
-    subtitle: '各种动画效果测试',
-    icon: 'mdi-play-box',
+    id: 'javafx-announcer',
+    title: 'JavaFX 桌面报站器',
+    subtitle: '地铁报站显示系统',
+    icon: 'mdi-subway',
     color: 'secondary'
   }
 ]
@@ -85,18 +83,32 @@ const projects = [
 // 当前选中的项目
 const selectedProject = ref('prediction')
 
-// 是否显示预测组件
-const showPrediction = ref(true)
+// 根据选中项目动态显示对应组件
+const currentComponent = computed(() => {
+  const componentMap = {
+    'prediction': Prediction,
+    'javafx-announcer': JavaFXStationAnnouncer
+  }
+  return componentMap[selectedProject.value] || null
+})
 
 // 选择项目的方法
 const selectProject = (projectId) => {
   selectedProject.value = projectId
-  // 只有选择 prediction 项目时才显示
-  showPrediction.value = (projectId === 'prediction')
 }
 </script>
 
 <style scoped>
+.project-list-col {
+  position: relative;
+}
+
+.sticky-card {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+}
+
 .v-list-item--active {
   background-color: rgba(167, 105, 172, 0.08);
 }

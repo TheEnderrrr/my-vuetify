@@ -5,6 +5,7 @@ import Prediction from '../views/Prediction.vue'
 import About from '../views/About.vue'
 import AnimationTest from '../views/AnimationTest.vue'
 import GSAPDemo from '../views/GSAPDemo.vue'
+import Aesthetic from '../views/Aesthetic.vue'
 
 const routes = [
   {
@@ -34,8 +35,13 @@ const routes = [
   },
   {
     path: '/gsap-demo',
-    name: 'GSAPDemo',
+    name: '动画演示',
     component: GSAPDemo
+  },
+  {
+    path: '/aesthetic',
+    name: '审美积累',
+    component: Aesthetic
   }
 ]
 

@@ -91,8 +91,8 @@ const goToHome = () => {
 const menuItems = ref([
   { title: '首页', icon: 'mdi-home', route: '/' },
   { title: '项目列表', icon: 'mdi-folder-multiple', route: '/projects' },
-  { title: '动画测试', icon: 'mdi-play-box', route: '/animation-test' },
-  { title: 'GSAP 演示', icon: 'mdi-animation', route: '/gsap-demo' },
+  { title: '审美积累', icon: 'mdi-palette', route: '/aesthetic' },
+  { title: '动画演示', icon: 'mdi-animation', route: '/gsap-demo' },
   { title: '关于', icon: 'mdi-information', route: '/about' }
 ])
 </script>
