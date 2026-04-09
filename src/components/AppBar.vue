@@ -5,7 +5,7 @@
     dark
     elevate-on-scroll
   >
-    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <div style="width: 40px;"></div>
     
     <v-toolbar-title 
       @click="goToHome"
@@ -41,29 +41,6 @@
       {{ item.title }}
     </v-btn>
   </v-app-bar>
-  
-  <v-navigation-drawer
-    v-model="drawer"
-    app
-    temporary
-  >
-    <v-list nav>
-      <v-list-item
-        v-for="item in menuItems"
-        :key="item.title"
-        :to="item.route"
-        link
-      >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-        
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
 </template>
 
 <script setup>
@@ -73,7 +50,6 @@ import { useTheme } from 'vuetify'
 
 const router = useRouter()
 const theme = useTheme()
-const drawer = ref(false)
 
 // 当前主题状态
 const isDark = computed(() => theme.current.value.dark)
@@ -91,8 +67,9 @@ const goToHome = () => {
 const menuItems = ref([
   { title: '首页', icon: 'mdi-home', route: '/' },
   { title: '项目列表', icon: 'mdi-folder-multiple', route: '/projects' },
+  { title: '画廊', icon: 'mdi-image-multiple', route: '/gallery' },
   { title: '审美积累', icon: 'mdi-palette', route: '/aesthetic' },
-  { title: '动画演示', icon: 'mdi-animation', route: '/gsap-demo' },
+  { title: '短片', icon: 'mdi-animation', route: '/gsap-demo' },
   { title: '关于', icon: 'mdi-information', route: '/about' }
 ])
 </script>

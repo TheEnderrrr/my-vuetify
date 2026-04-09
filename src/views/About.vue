@@ -5,7 +5,8 @@
         <v-col cols="12" class="text-center pb-8">
           <!-- 社交媒体链接 -->
           <div class="footer-links">
-            <div class="d-flex justify-center gap-6 flex-wrap">
+            <div class="d-flex justify-center align-center gap-6 flex-wrap">
+              <span class="footer-label">我的主页：</span>
               <!-- B站链接 -->
               <a 
                 href="https://space.bilibili.com/281216839" 
@@ -56,6 +57,12 @@
 .footer-links {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.footer-label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .footer-link {

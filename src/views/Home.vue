@@ -6,25 +6,31 @@
         <v-col cols="12" md="10" lg="10">
           <v-card elevation="2" rounded="lg" class="pa-6 mb-4">
             <div class="text-center">
-              <v-avatar size="120" class="mb-4" color="primary">
-                <v-icon size="60" color="white">mdi-account-circle</v-icon>
+              <v-avatar size="120" class="mb-4">
+                <v-img :src="avatarUrl" alt="Ender's avatar" />
               </v-avatar>
-              <h1 class="text-h3 font-weight-bold mb-2">Ender</h1>
-              <p class="text-h6 text-medium-emphasis mb-4">大数据与分布式系统学习者</p>
+              <h1 class="text-h3 font-weight-bold mb-4">Ender</h1>
               
-              <div class="d-flex justify-center gap-3 flex-wrap">
-                <v-chip color="primary" variant="tonal" size="small" class="ma-1">
-                  <v-icon start>mdi-language-javascript</v-icon>
-                  Vue.js
-                </v-chip>
-                <v-chip color="secondary" variant="tonal" size="small" class="ma-1">
-                  <v-icon start>mdi-database</v-icon>
-                  Hadoop
-                </v-chip>
-                <v-chip color="accent" variant="tonal" size="small" class="ma-1">
-                  <v-icon start>mdi-chart-timeline-variant</v-icon>
-                  Spark
-                </v-chip>
+              <!-- 我正在做 -->
+              <div class="current-projects mb-6">
+                <h2 class="text-h5 font-weight-bold mb-3">
+                  <v-icon color="primary" class="mr-2">mdi-briefcase-clock</v-icon>
+                  我正在做
+                </h2>
+                <div class="d-flex justify-center">
+                  <v-table density="compact" class="text-left" style="max-width: 500px; width: 100%;">
+                    <tbody>
+                      <tr v-for="(item, index) in currentProjects" :key="index">
+                        <td class="text-body-1">{{ item.name }}</td>
+                        <td class="text-right">
+                          <v-chip size="small" :color="item.statusColor" variant="tonal">
+                            {{ item.status }}
+                          </v-chip>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </v-table>
+                </div>
               </div>
               
               <div class="mt-6">
@@ -73,7 +79,7 @@
             <v-col cols="12" md="6">
               <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
                 <v-card-title class="text-h5 font-weight-bold mb-4">
-                  <v-icon color="secondary" class="mr-2">mdi-gamepad-variant</v-icon>
+                  <v-icon color="primary" class="mr-2">mdi-gamepad-variant</v-icon>
                   爱玩的游戏
                 </v-card-title>
                 <v-card-text>
@@ -122,7 +128,7 @@
             <v-col cols="12" md="6">
               <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
                 <v-card-title class="text-h5 font-weight-bold mb-4">
-                  <v-icon color="secondary" class="mr-2">mdi-gamepad-variant</v-icon>
+                  <v-icon color="primary" class="mr-2">mdi-gamepad-variant</v-icon>
                   游戏开发技术栈
                 </v-card-title>
                 <v-card-text>
@@ -147,7 +153,7 @@
         <v-col cols="12" md="10" lg="10">
           <v-card elevation="2" rounded="lg" class="pa-4 mb-4">
             <v-card-title class="text-h5 font-weight-bold mb-4">
-              <v-icon color="accent" class="mr-2">mdi-robot-happy</v-icon>
+              <v-icon color="primary" class="mr-2">mdi-robot-happy</v-icon>
               AI 使用情况
             </v-card-title>
             <v-card-text>
@@ -196,12 +202,21 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import avatarImage from '@/assets/pictures/touxiang.jpeg'
 
 const router = useRouter()
+
+const avatarUrl = avatarImage
 
 const goToAbout = () => {
   router.push('/about')
 }
+
+// 当前进行中的项目
+const currentProjects = [
+  { name: '学习和实践 ELK 日志处理', status: '进行中', statusColor: 'primary' },
+  { name: '新的独立塔防游戏策划', status: '进行中', statusColor: 'primary' }
+]
 
 const interests = [
   { icon: 'mdi-gamepad-variant', title: '游戏爱好者', subtitle: 'APEX 狂热粉丝！' },
@@ -218,11 +233,11 @@ const games = [
 ]
 
 const bigDataTechs = [
+  { icon: 'mdi-language-python', title: 'Python', subtitle: '数据分析与机器学习' },
+  { icon: 'mdi-language-lua', title: 'Lua', subtitle: '脚本语言与游戏开发' },
   { icon: 'mdi-language-javascript', title: 'JavaScript/TypeScript', subtitle: '前端开发基础语言' },
   { icon: 'mdi-vuejs', title: 'Vue.js 3', subtitle: '现代化前端框架' },
-  { icon: 'mdi-database', title: 'Hadoop', subtitle: '分布式存储与计算' },
-  { icon: 'mdi-chart-timeline-variant', title: 'Spark', subtitle: '内存分布式计算' },
-  { icon: 'mdi-language-python', title: 'Python', subtitle: '数据分析与机器学习' }
+  { icon: 'mdi-chart-timeline-variant', title: 'Spark', subtitle: '内存分布式计算' }
 ]
 
 const gameDevTechs = [

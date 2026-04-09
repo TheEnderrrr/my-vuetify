@@ -166,7 +166,7 @@
                         preload="metadata"
                         volume="0.5"
                       >
-                        <source :src="musicUrl" type="audio/flac">
+                        <source :src="musicUrl" type="audio/mpeg">
                         您的浏览器不支持音频播放
                       </audio>
                       
@@ -460,6 +460,16 @@
                     背景音乐的放松属性与简洁清晰的视觉呈现相得益彰，共同构建出一个舒适、可信的新闻观看环境。
                   </p>
                   
+                  <v-alert 
+                    type="success" 
+                    variant="tonal" 
+                    density="compact"
+                    class="mb-4"
+                    border="start"
+                  >
+                    <strong>设计亮点：</strong>高级放松的背景音乐 + 简洁清晰的UI动画 = 现代新闻美学的完美诠释
+                  </v-alert>
+                  
                   <!-- 视频播放器 -->
                   <div class="video-player mb-4">
                     <video 
@@ -471,16 +481,6 @@
                       您的浏览器不支持视频播放
                     </video>
                   </div>
-                  
-                  <v-alert 
-                    type="success" 
-                    variant="tonal" 
-                    density="compact"
-                    class="mb-4"
-                    border="start"
-                  >
-                    <strong>设计亮点：</strong>高级放松的背景音乐 + 简洁清晰的UI动画 = 现代新闻美学的完美诠释
-                  </v-alert>
                   
                   <v-divider class="mb-3"></v-divider>
                   
@@ -504,7 +504,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import musicFile from '@/assets/musics/Jizue - brink.flac'
+import musicFile from '@/assets/musics/Jizue - brink.mp3'
 import abcNewsVideo from '@/assets/videos/ABC News-OP.mp4'
 import hunanTVVideo from '@/assets/videos/湖南卫视包装2019.mp4'
 import annNewsVideo from '@/assets/videos/ANN-OP.mp4'

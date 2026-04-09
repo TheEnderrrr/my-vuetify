@@ -6,6 +6,7 @@ import About from '../views/About.vue'
 import AnimationTest from '../views/AnimationTest.vue'
 import GSAPDemo from '../views/GSAPDemo.vue'
 import Aesthetic from '../views/Aesthetic.vue'
+import Gallery from '../views/Gallery.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/aesthetic',
     name: '审美积累',
     component: Aesthetic
+  },
+  {
+    path: '/gallery',
+    name: 'Gallery',
+    component: Gallery
   }
 ]
 

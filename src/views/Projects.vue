@@ -61,22 +61,38 @@
 import { ref, computed } from 'vue'
 import Prediction from './Prediction.vue'
 import JavaFXStationAnnouncer from './JavaFXStationAnnouncer.vue'
+import Huahuozhen from './Huahuozhen.vue'
+import ClickBall from './ClickBall.vue'
 
 // 项目数据
 const projects = [
+  {
+    id: 'huahuozhen',
+    title: '2D横板RPG游戏《花火镇》',
+    subtitle: '重剧情2D平台RPG',
+    icon: 'mdi-fire',
+    color: 'primary'
+  },
   {
     id: 'prediction',
     title: '电影分类预测系统',
     subtitle: '基于朴素贝叶斯算法',
     icon: 'mdi-chart-box',
-    color: 'primary'
+    color: 'secondary'
   },
   {
     id: 'javafx-announcer',
     title: 'JavaFX 桌面报站器',
     subtitle: '地铁报站显示系统',
     icon: 'mdi-subway',
-    color: 'secondary'
+    color: 'accent'
+  },
+  {
+    id: 'click-ball',
+    title: '点击球 - 034GJ',
+    subtitle: '极简几何3D游戏',
+    icon: 'mdi-circle-slice-8',
+    color: 'success'
   }
 ]
 
@@ -86,8 +102,10 @@ const selectedProject = ref('prediction')
 // 根据选中项目动态显示对应组件
 const currentComponent = computed(() => {
   const componentMap = {
+    'huahuozhen': Huahuozhen,
     'prediction': Prediction,
-    'javafx-announcer': JavaFXStationAnnouncer
+    'javafx-announcer': JavaFXStationAnnouncer,
+    'click-ball': ClickBall
   }
   return componentMap[selectedProject.value] || null
 })
