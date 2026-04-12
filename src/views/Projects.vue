@@ -63,6 +63,7 @@ import Prediction from './Prediction.vue'
 import JavaFXStationAnnouncer from './JavaFXStationAnnouncer.vue'
 import Huahuozhen from './Huahuozhen.vue'
 import ClickBall from './ClickBall.vue'
+import TravelPlanning from './TravelPlanning.vue'
 
 // 项目数据
 const projects = [
@@ -93,6 +94,13 @@ const projects = [
     subtitle: '极简几何3D游戏',
     icon: 'mdi-circle-slice-8',
     color: 'success'
+  },
+  {
+    id: 'travel-planning',
+    title: '旅游信息出行规划系统',
+    subtitle: 'Flask + Vue3 全栈应用',
+    icon: 'mdi-map-marker-path',
+    color: 'info'
   }
 ]
 
@@ -105,7 +113,8 @@ const currentComponent = computed(() => {
     'huahuozhen': Huahuozhen,
     'prediction': Prediction,
     'javafx-announcer': JavaFXStationAnnouncer,
-    'click-ball': ClickBall
+    'click-ball': ClickBall,
+    'travel-planning': TravelPlanning
   }
   return componentMap[selectedProject.value] || null
 })

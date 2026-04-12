@@ -9,6 +9,7 @@
             审美积累
           </h1>
           <p class="text-subtitle-1 text-medium-emphasis">记录生活中的美好瞬间与灵感</p>
+          <p class="text-caption text-medium-emphasis mt-1">虽然直接把视频图片放在前端项目内不是很好，但是因为经费有限所以请谅解😭</p>
         </div>
 
         <!-- 时间轴布局：左侧时间轴，右侧内容 -->

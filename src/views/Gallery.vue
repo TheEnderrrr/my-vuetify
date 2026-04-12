@@ -25,8 +25,7 @@
                 rounded="lg" 
                 class="gallery-card"
                 overflow="hidden"
-                :class="{ 'gallery-card-clickable': image.href }"
-                @click="handleImageClick(image)"
+                @click="openImagePreview(image)"
                 ripple="false"
               >
                 <v-img
@@ -46,6 +45,35 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- 图片预览对话框 -->
+    <v-dialog v-model="imageDialog" max-width="90vw" persistent>
+      <v-card>
+        <v-toolbar color="primary" density="compact">
+          <v-spacer></v-spacer>
+          <v-btn 
+            v-if="currentImage?.href" 
+            color="white" 
+            variant="text"
+            prepend-icon="mdi-open-in-new"
+            @click="openExternalLink"
+          >
+            前往链接
+          </v-btn>
+          <v-btn icon @click="closeImagePreview">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card-text class="pa-0">
+          <v-img
+            :src="currentImage?.url"
+            contain
+            max-height="80vh"
+            class="preview-image"
+          ></v-img>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -87,10 +115,26 @@ const galleryImages = ref([
   { url: img15, name: 'Screenshot_20250622_124633_tv.danmaku.bili', ratio: '16/9', href: 'https://www.bilibili.com/opus/1057140486963200037' }
 ])
 
-// 处理图片点击跳转
-const handleImageClick = (image) => {
-  if (image.href) {
-    window.open(image.href, '_blank')
+// 图片预览功能
+const imageDialog = ref(false)
+const currentImage = ref(null)
+
+// 打开图片预览
+const openImagePreview = (image) => {
+  currentImage.value = image
+  imageDialog.value = true
+}
+
+// 关闭图片预览
+const closeImagePreview = () => {
+  imageDialog.value = false
+  currentImage.value = null
+}
+
+// 打开外部链接
+const openExternalLink = () => {
+  if (currentImage.value?.href) {
+    window.open(currentImage.value.href, '_blank')
   }
 }
 </script>
@@ -111,26 +155,16 @@ const handleImageClick = (image) => {
   margin-bottom: 24px;
 }
 
+/* 所有卡片都可点击 */
 .gallery-card {
   transition: all 0.3s ease;
-  cursor: default;
-}
-
-/* 可点击卡片样式 */
-.gallery-card-clickable {
   cursor: pointer;
   position: relative;
 }
 
-.gallery-card-clickable:hover {
+.gallery-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* 普通卡片悬停效果 */
-.gallery-card:not(.gallery-card-clickable):hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(167, 105, 172, 0.2);
 }
 
 /* 跳转指示器 */
@@ -160,6 +194,10 @@ const handleImageClick = (image) => {
 
 .gallery-card:hover .gallery-image {
   transform: scale(1.02);
+}
+
+.preview-image {
+  background: #f5f5f5;
 }
 
 /* 响应式调整 */

@@ -108,7 +108,7 @@
               <v-card elevation="2" rounded="lg" class="pa-4 mb-4 h-100">
                 <v-card-title class="text-h5 font-weight-bold mb-4">
                   <v-icon color="primary" class="mr-2">mdi-database</v-icon>
-                  大数据技术栈
+                  开发技术栈
                 </v-card-title>
                 <v-card-text>
                   <v-list density="compact" bg-color="transparent">
@@ -171,31 +171,7 @@
         </v-col>
       </v-row>
 
-      <!-- 关于我 -->
-      <v-row justify="center" class="mt-0">
-        <v-col cols="12" md="10" lg="10">
-          <v-card elevation="2" rounded="lg" class="pa-4 mb-4">
-            <v-card-title class="text-h5 font-weight-bold mb-4">
-              <v-icon color="primary" class="mr-2">mdi-information-outline</v-icon>
-              关于本站
-            </v-card-title>
-            <v-card-text>
-              <p class="text-body-1 mb-3">
-                这是一个学习和展示大数据与分布式系统技术的平台。在这里，你可以：
-              </p>
-              <v-list density="compact" bg-color="transparent">
-                <v-list-item
-                  v-for="(item, index) in aboutItems"
-                  :key="index"
-                  :prepend-icon="item.icon"
-                  :title="item.title"
-                  :subtitle="item.subtitle"
-                ></v-list-item>
-              </v-list>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
+
     </v-container>
   </div>
 </template>
@@ -235,8 +211,8 @@ const games = [
 const bigDataTechs = [
   { icon: 'mdi-language-python', title: 'Python', subtitle: '数据分析与机器学习' },
   { icon: 'mdi-language-lua', title: 'Lua', subtitle: '脚本语言与游戏开发' },
+  { icon: 'mdi-language-java', title: 'Java', subtitle: '后端开发基础语言' },
   { icon: 'mdi-language-javascript', title: 'JavaScript/TypeScript', subtitle: '前端开发基础语言' },
-  { icon: 'mdi-vuejs', title: 'Vue.js 3', subtitle: '现代化前端框架' },
   { icon: 'mdi-chart-timeline-variant', title: 'Spark', subtitle: '内存分布式计算' }
 ]
 

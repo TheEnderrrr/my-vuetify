@@ -126,14 +126,12 @@
           <div class="arrow-horizontal arrow-middle arrow-top" style="grid-row: 1; grid-column: 2;">
             <div class="arrow-label arrow-label-up">发送预测请求</div>
             <div class="arrow-space"></div>
-            <div class="arrow-line"></div>
           </div>
           
           <!-- 箭头3: 后端 → 前端 (下行) -->
           <div class="arrow-return arrow-middle arrow-bottom" style="grid-row: 1; grid-column: 2;">
-            <div class="arrow-line arrow-left"></div>
             <div class="arrow-space"></div>
-            <div class="arrow-label arrow-label-down">返回计算结果</div>
+            <div class="arrow-label arrow-label-down">处理为 JSON 并返回</div>
           </div>
           
           <!-- 第一行：后端 -->
@@ -147,14 +145,12 @@
           <div class="arrow-horizontal arrow-middle arrow-top" style="grid-row: 1; grid-column: 4;">
             <div class="arrow-label arrow-label-up">组合 Hadoop 指令</div>
             <div class="arrow-space"></div>
-            <div class="arrow-line"></div>
           </div>
           
           <!-- 箭头4: Hadoop → 后端 (下行) -->
           <div class="arrow-return arrow-middle arrow-bottom" style="grid-row: 1; grid-column: 4;">
-            <div class="arrow-line arrow-left"></div>
             <div class="arrow-space"></div>
-            <div class="arrow-label arrow-label-down">处理为 JSON 并返回</div>
+            <div class="arrow-label arrow-label-down">返回计算结果</div>
           </div>
           
           <!-- 第一行：Hadoop -->
