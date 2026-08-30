@@ -190,8 +190,8 @@ const goToAbout = () => {
 
 // 当前进行中的项目
 const currentProjects = [
-  { name: '学习和实践 ELK 日志处理', status: '进行中', statusColor: 'primary' },
-  { name: '新的独立塔防游戏策划', status: '进行中', statusColor: 'primary' }
+  { name: 'Unity2D塔防游戏开发中', status: '进行中', statusColor: 'primary' },
+  { name: '塔防游戏开发辅助工具完善中', status: '进行中', statusColor: 'primary' }
 ]
 
 const interests = [

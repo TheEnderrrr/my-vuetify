@@ -64,6 +64,7 @@ import JavaFXStationAnnouncer from './JavaFXStationAnnouncer.vue'
 import Huahuozhen from './Huahuozhen.vue'
 import ClickBall from './ClickBall.vue'
 import TravelPlanning from './TravelPlanning.vue'
+import ElkDmp from './ElkDmp.vue'
 
 // 项目数据
 const projects = [
@@ -73,6 +74,13 @@ const projects = [
     subtitle: '重剧情2D平台RPG',
     icon: 'mdi-fire',
     color: 'primary'
+  },
+  {
+    id: 'elk-dmp',
+    title: '基于ELK的DMP大数据画像分析系统',
+    subtitle: 'ELK + 用户画像',
+    icon: 'mdi-account-search',
+    color: 'warning'
   },
   {
     id: 'prediction',
@@ -110,6 +118,7 @@ const selectedProject = ref('prediction')
 // 根据选中项目动态显示对应组件
 const currentComponent = computed(() => {
   const componentMap = {
+    'elk-dmp': ElkDmp,
     'huahuozhen': Huahuozhen,
     'prediction': Prediction,
     'javafx-announcer': JavaFXStationAnnouncer,
