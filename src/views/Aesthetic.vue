@@ -1,7 +1,7 @@
 <template>
-  <v-container class="aesthetic-timeline py-8">
-    <v-row justify="center">
-      <v-col cols="12" md="10" lg="10">
+  <v-container fluid class="aesthetic-timeline py-8">
+    <v-row>
+      <v-col cols="12">
         <!-- 页面标题 -->
         <div class="text-center mb-8">
           <h1 class="text-h3 font-weight-bold mb-2">
@@ -572,7 +572,7 @@ const nightColors = ref([
 }
 
 .timeline-wrapper {
-  padding-left: 20px;
+  padding-left: 0;
   width: 100%;
 }
 
@@ -700,7 +700,7 @@ const nightColors = ref([
 /* 响应式调整 */
 @media (max-width: 600px) {
   .timeline-wrapper {
-    padding-left: 10px;
+    padding-left: 0;
   }
   
   .color-row {
