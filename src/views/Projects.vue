@@ -65,9 +65,17 @@ import Huahuozhen from './Huahuozhen.vue'
 import ClickBall from './ClickBall.vue'
 import TravelPlanning from './TravelPlanning.vue'
 import ElkDmp from './ElkDmp.vue'
+import PersonalSite from './PersonalSite.vue'
 
 // 项目数据
 const projects = [
+  {
+    id: 'personal-site',
+    title: '个人网站「Ender 的奇妙小窝」',
+    subtitle: 'Vue3 + Vuetify3，即本站',
+    icon: 'mdi-home-heart',
+    color: 'primary'
+  },
   {
     id: 'huahuozhen',
     title: '2D横板RPG游戏《花火镇》',
@@ -118,6 +126,7 @@ const selectedProject = ref('prediction')
 // 根据选中项目动态显示对应组件
 const currentComponent = computed(() => {
   const componentMap = {
+    'personal-site': PersonalSite,
     'elk-dmp': ElkDmp,
     'huahuozhen': Huahuozhen,
     'prediction': Prediction,
