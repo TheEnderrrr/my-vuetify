@@ -6,6 +6,10 @@
         <v-icon size="40" color="primary" class="mr-3">mdi-home-heart</v-icon>
         <h1 class="text-h4 font-weight-bold">个人网站「Ender 的奇妙小窝」（本项目）</h1>
       </div>
+      <v-chip color="primary" variant="tonal" class="mr-2">
+        <v-icon start>mdi-calendar-range</v-icon>
+        XXXX.XX - 至今
+      </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Vue 3</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Vuetify 3</v-chip>
       <v-chip color="accent" variant="tonal" class="mr-2">Vite</v-chip>

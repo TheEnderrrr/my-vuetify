@@ -6,6 +6,10 @@
         <v-icon size="40" color="primary" class="mr-3">mdi-account-search</v-icon>
         <h1 class="text-h4 font-weight-bold">基于ELK的DMP大数据画像分析系统</h1>
       </div>
+      <v-chip color="primary" variant="tonal" class="mr-2">
+        <v-icon start>mdi-calendar-range</v-icon>
+        XXXX.XX - XXXX.XX
+      </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Elasticsearch</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Logstash</v-chip>
       <v-chip color="accent" variant="tonal" class="mr-2">Kibana</v-chip>

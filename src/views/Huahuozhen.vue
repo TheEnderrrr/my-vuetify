@@ -6,6 +6,10 @@
         <v-icon size="40" color="primary" class="mr-3">mdi-fire</v-icon>
         <h1 class="text-h4 font-weight-bold">2D横板RPG游戏《花火镇》</h1>
       </div>
+      <v-chip color="primary" variant="tonal" class="mr-2">
+        <v-icon start>mdi-calendar-range</v-icon>
+        XXXX.XX - XXXX.XX
+      </v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Unity</v-chip>
       <v-chip color="accent" variant="tonal" class="mr-2">2D RPG</v-chip>
       <v-chip color="success" variant="tonal">重剧情</v-chip>

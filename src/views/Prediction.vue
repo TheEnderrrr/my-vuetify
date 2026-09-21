@@ -6,6 +6,10 @@
         <v-icon size="40" color="primary" class="mr-3">mdi-chart-box</v-icon>
         <h1 class="text-h4 font-weight-bold">电影情感与流派预测系统</h1>
       </div>
+      <v-chip color="primary" variant="tonal" class="mr-2">
+        <v-icon start>mdi-calendar-range</v-icon>
+        XXXX.XX - XXXX.XX
+      </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Java</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Hadoop</v-chip>
       <v-chip color="accent" variant="tonal" class="mr-2">Vue 3</v-chip>
