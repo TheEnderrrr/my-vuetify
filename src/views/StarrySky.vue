@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - XXXX.XX
+        2026.8 - 2026.9
       </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">程序 · 独立开发</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Unity 2D</v-chip>

@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - XXXX.XX
+        2026.1 - 2026.2
       </v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Unity</v-chip>
       <v-chip color="accent" variant="tonal" class="mr-2">2D RPG</v-chip>

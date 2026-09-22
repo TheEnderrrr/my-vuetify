@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - XXXX.XX
+        2024.4 - 2024.6
       </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">JavaFX</v-chip>
       <v-chip color="secondary" variant="tonal">桌面应用</v-chip>

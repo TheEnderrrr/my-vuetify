@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - XXXX.XX
+        2025.11 - 2025.12
       </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Python</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Flask</v-chip>

@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - 至今
+        2025.11 - 至今
       </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Vue 3</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Vuetify 3</v-chip>

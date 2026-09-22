@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - XXXX.XX
+        2026.6 - 2026.7
       </v-chip>
       <v-chip color="primary" variant="tonal" class="mr-2">Elasticsearch</v-chip>
       <v-chip color="secondary" variant="tonal" class="mr-2">Logstash</v-chip>

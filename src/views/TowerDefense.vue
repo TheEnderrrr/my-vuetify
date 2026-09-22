@@ -8,7 +8,7 @@
       </div>
       <v-chip color="primary" variant="tonal" class="mr-2">
         <v-icon start>mdi-calendar-range</v-icon>
-        XXXX.XX - 至今
+        2025.03 - 至今
       </v-chip>
       <v-chip color="error" variant="tonal" class="mr-2">
         <v-icon start>mdi-progress-clock</v-icon>
