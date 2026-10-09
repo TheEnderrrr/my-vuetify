@@ -213,8 +213,8 @@ const getWeatherIcon = (code) => {
     1: 'mdi-weather-partly-cloudy', // 多云
     2: 'mdi-weather-cloudy',     // 阴天
     3: 'mdi-weather-cloudy',     // 多云
-    45: 'mdi-weather-foggy',     // 雾
-    48: 'mdi-weather-foggy',     // 雾凇
+    45: 'mdi-weather-fog',       // 雾
+    48: 'mdi-weather-fog',       // 雾凇
     51: 'mdi-weather-pouring',   // 毛毛雨
     53: 'mdi-weather-pouring',
     55: 'mdi-weather-pouring',

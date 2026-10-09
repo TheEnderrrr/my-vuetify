@@ -40,6 +40,21 @@
       </p>
     </v-card>
 
+    <!-- 开发级DEMO预览 -->
+    <v-card elevation="1" rounded="lg" class="mb-6 pa-4">
+      <h2 class="text-h5 font-weight-bold mb-3">
+        <v-icon color="primary" class="mr-2">mdi-motion-play</v-icon>
+        开发级预览DEMO
+      </h2>
+      <video
+        class="demo-video"
+        :src="demoVideo"
+        controls
+        preload="metadata"
+        playsinline
+      ></video>
+    </v-card>
+
     <!-- 我的职责 -->
     <v-card elevation="1" rounded="lg" class="mb-6 pa-4">
       <h2 class="text-h5 font-weight-bold mb-3">
@@ -163,7 +178,7 @@
           摄像机控制
         </v-chip>
         <v-chip color="success" variant="tonal" class="ma-1">
-          <v-icon start>mdi-geometry</v-icon>
+          <v-icon start>mdi-cube-outline</v-icon>
           极简 3D
         </v-chip>
         <v-chip color="warning" variant="tonal" class="ma-1">
@@ -177,6 +192,9 @@
 
 <script setup>
 import { ref } from 'vue'
+
+// 开发级预览 DEMO 视频
+const demoVideo = new URL('@/assets/videos/点击球-开发级预览DEMO.mp4', import.meta.url).href
 
 const responsibilities = ref([
   '完整 UI 系统设计与实现',
@@ -199,6 +217,17 @@ const gjRules = ref([
 <style scoped>
 .gap-2 {
   gap: 8px;
+}
+
+/* DEMO 视频区域 */
+.demo-video {
+  display: block;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #000;
+  aspect-ratio: 16 / 9;
 }
 
 .feature-list {

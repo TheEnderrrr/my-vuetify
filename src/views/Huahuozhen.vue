@@ -39,6 +39,62 @@
       </p>
     </v-card>
 
+    <!-- 项目截图 -->
+    <v-card elevation="1" rounded="lg" class="mb-6 pa-4">
+      <h2 class="text-h5 font-weight-bold mb-3">
+        <v-icon color="primary" class="mr-2">mdi-image</v-icon>
+        项目截图
+      </h2>
+      <v-row>
+        <v-col cols="12" md="6" v-for="(screenshot, index) in screenshots" :key="index">
+          <v-card
+            variant="outlined"
+            class="screenshot-card cursor-pointer"
+            @click="openImage(screenshot.src)"
+            hover
+          >
+            <v-img
+              :src="screenshot.src"
+              :alt="screenshot.caption"
+              cover
+              class="screenshot-image"
+              aspect-ratio="16/9"
+            >
+              <template v-slot:placeholder>
+                <div class="d-flex align-center justify-center fill-height">
+                  <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                </div>
+              </template>
+            </v-img>
+            <v-card-text class="text-center text-caption py-2">
+              {{ screenshot.caption }}
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-card>
+
+    <!-- 图片预览对话框 -->
+    <v-dialog v-model="imageDialog" max-width="90vw" persistent>
+      <v-card>
+        <v-toolbar color="primary" density="compact">
+          <v-toolbar-title>项目截图预览</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon @click="closeImage">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card-text class="pa-0">
+          <v-img
+            :src="currentImage"
+            contain
+            max-height="80vh"
+            class="preview-image"
+          ></v-img>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
     <!-- 我的职责 -->
     <v-card elevation="1" rounded="lg" class="mb-6 pa-4">
       <h2 class="text-h5 font-weight-bold mb-3">
@@ -152,6 +208,27 @@ const responsibilities = ref([
   '背包、快捷栏、菜单等页面UI实现'
 ])
 
+// 项目截图（src/assets/pictures/Inner-GJ）
+const screenshots = [
+  { src: new URL('@/assets/pictures/Inner-GJ/花火镇-标题.png', import.meta.url).href, caption: '标题画面' },
+  { src: new URL('@/assets/pictures/Inner-GJ/花火镇-基础.png', import.meta.url).href, caption: '基础探索' },
+  { src: new URL('@/assets/pictures/Inner-GJ/花火镇-对话.png', import.meta.url).href, caption: 'NPC 对话' },
+  { src: new URL('@/assets/pictures/Inner-GJ/花火镇-背包.png', import.meta.url).href, caption: '背包界面' }
+]
+
+// 截图预览
+const imageDialog = ref(false)
+const currentImage = ref('')
+
+const openImage = (imageUrl) => {
+  currentImage.value = imageUrl
+  imageDialog.value = true
+}
+
+const closeImage = () => {
+  imageDialog.value = false
+}
+
 const features = ref([
   {
     title: '丰富剧情',
@@ -162,7 +239,7 @@ const features = ref([
   {
     title: '独特玩法',
     description: '通过献祭火焰花花瓣向神像许愿,解放战斗区域,引发村庄变化',
-    icon: 'mdi-flame',
+    icon: 'mdi-fire',
     color: 'error'
   },
   {
@@ -212,5 +289,33 @@ const features = ref([
   left: 0;
   color: #a769ac;
   font-weight: bold;
+}
+
+/* 截图卡片 */
+.screenshot-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.screenshot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(167, 105, 172, 0.2);
+  border-color: rgba(167, 105, 172, 0.5);
+}
+
+.screenshot-image {
+  transition: transform 0.3s ease;
+}
+
+.screenshot-card:hover .screenshot-image {
+  transform: scale(1.05);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.preview-image {
+  background: #f5f5f5;
 }
 </style>

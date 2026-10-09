@@ -117,7 +117,7 @@
       </v-col>
 
       <!-- 右侧项目详情 -->
-      <v-col cols="12" md="9" lg="9" class="project-detail-col">
+      <v-col ref="detailCol" cols="12" md="9" lg="9" class="project-detail-col">
         <v-card elevation="2" rounded="lg" min-height="500">
           <component 
             v-if="currentComponent" 
@@ -135,7 +135,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import Prediction from './Prediction.vue'
 import JavaFXStationAnnouncer from './JavaFXStationAnnouncer.vue'
 import Huahuozhen from './Huahuozhen.vue'
@@ -271,6 +271,13 @@ const currentComponent = computed(() => {
 const selectProject = (projectId) => {
   selectedProject.value = projectId
 }
+
+// 切换项目时详情列回到顶部（桌面端详情列自身是滚动容器；v-model 选中与点击两条路径都会触发）
+const detailCol = ref(null)
+watch(selectedProject, () => {
+  const el = detailCol.value?.$el
+  if (el) el.scrollTop = 0
+})
 
 /* ---------------- 目录隐藏式滚动条 ---------------- */
 // 滚动时显示细条；鼠标靠近右缘持续 1.5s 后展开变宽便于点击；移开后自动收起隐藏
