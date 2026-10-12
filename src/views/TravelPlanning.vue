@@ -231,7 +231,7 @@
         本人负责内容
       </h2>
       <v-alert type="info" variant="tonal" border="start" class="mb-4">
-        <strong>核心完成系统配置与操作说明模块</strong>
+        <strong>业务逻辑和全栈部分独立vibe coding完成</strong>
       </v-alert>
       <v-list bg-color="transparent">
         <v-list-item v-for="(task, index) in responsibilities" :key="index">
